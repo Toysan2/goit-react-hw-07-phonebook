@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import apiMethods from './components/myAPI';
+import apiMethods from '../components/myAPI/myAPI';
 
 const { fetchContacts, addContact, deleteContact } = apiMethods;
 
@@ -15,7 +15,7 @@ export const fetchContactsAsync = createAsyncThunk(
 
 export const addContactAsync = createAsyncThunk(
   'contacts/addContact',
-  async (contact) => {
+  async contact => {
     const response = await addContact(contact);
     return response;
   }
@@ -23,7 +23,7 @@ export const addContactAsync = createAsyncThunk(
 
 export const deleteContactAsync = createAsyncThunk(
   'contacts/deleteContact',
-  async (contactId) => {
+  async contactId => {
     await deleteContact(contactId);
     return contactId;
   }

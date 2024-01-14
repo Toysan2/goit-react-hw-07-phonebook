@@ -1,9 +1,9 @@
-import '../components/SharedLayouts.css';
+import '../SharedLayouts/SharedLayouts.css';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchContactsAsync } from '../actions';
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
+import { fetchContactsAsync } from '../../redux/actions';
+import ContactForm from '../ContactForm/ContactForm';
+import ContactList from '../ContactList/ContactList';
 
 const App = () => {
   const dispatch = useDispatch();

@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { actions } from '../store';
+import { actions } from '../../redux/store';
 import './ContactForm.css';
 
 const { addContactAsync } = actions;
 
 const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState(''); // Updated from 'number' to 'phone'
   const dispatch = useDispatch();
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
     if (name === 'name') setName(value);
-    if (name === 'number') setNumber(value);
+    if (name === 'phone') setPhone(value); // Updated from 'number' to 'phone'
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addContactAsync({ name, number }));
+    dispatch(addContactAsync({ name, phone })); // Updated the key to 'phone'
     setName('');
-    setNumber('');
+    setPhone(''); // Updated from 'number' to 'phone'
   };
 
   return (
@@ -36,11 +36,11 @@ const ContactForm = () => {
         />
       </label>
       <label>
-        Number
+        Phone {/* Updated label from 'Number' to 'Phone' */}
         <input
           type="text"
-          name="number"
-          value={number}
+          name="phone" // Updated from 'number' to 'phone'
+          value={phone}
           onChange={handleInputChange}
           required
         />
